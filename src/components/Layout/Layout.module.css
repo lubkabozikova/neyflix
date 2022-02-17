@@ -1,0 +1,12 @@
+.main {
+  background-image: linear-gradient(black, transparent, black),
+    url("./zgeTuV.jpg");
+  background-size: cover;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 28px 3.5rem 0;
+}
