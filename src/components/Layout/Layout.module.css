@@ -2,11 +2,18 @@
   background-image: linear-gradient(black, transparent, black),
     url("./zgeTuV.jpg");
   background-size: cover;
+  min-height: 600px;
+  padding: 150px 0 0 0;
 }
 
-.header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 28px 3.5rem 0;
+.logo {
+  position: fixed;
+  top: 28px;
+  left: 3.5rem;
 }
+
+/* .button {
+  position: fixed;
+  top: 28px;
+  right: 3.5rem;
+} */
