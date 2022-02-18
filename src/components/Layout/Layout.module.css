@@ -1,9 +1,15 @@
-.main {
-  background-image: linear-gradient(black, transparent, black),
+.unauth {
+  background-image: linear-gradient(
+      var(--background),
+      transparent,
+      var(--background)
+    ),
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url("./zgeTuV.jpg");
   background-size: cover;
   min-height: 600px;
   padding: 150px 0 0 0;
+  margin-bottom: 55px;
 }
 
 .logo {
@@ -12,8 +18,23 @@
   left: 3.5rem;
 }
 
-/* .button {
+.auth {
+  background-color: var(--background);
+  padding: 150px 0 0 0;
+  margin-bottom: 55px;
+}
+
+.footer {
   position: fixed;
-  top: 28px;
-  right: 3.5rem;
-} */
+  bottom: 0;
+  padding-top: 15px;
+  height: 40px;
+  width: 100%;
+  background-color: #353535;
+  color: #808080;
+  font-size: 14px;
+}
+
+.footer img {
+  margin: 5px 5px 0;
+}

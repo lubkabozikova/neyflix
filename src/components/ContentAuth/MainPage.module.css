@@ -1,0 +1,13 @@
+.carousel {
+  display: flex;
+  overflow: hidden;
+  flex-direction: row;
+  width: fit-content;
+  margin: auto;
+}
+
+.item {
+  height: 278px;
+  width: 185px;
+  overflow: hidden;
+}
