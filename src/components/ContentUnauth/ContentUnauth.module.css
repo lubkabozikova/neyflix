@@ -29,20 +29,13 @@
   padding: 8px 2rem;
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
-  border-left: 1px solid black;
-}
-
-.headerButton {
-  position: fixed;
-  top: 28px;
-  right: 3.5rem;
+  border-left: 1px solid var(--background);
 }
 
 .input {
   background-color: white;
   width: 480px;
   height: 60px;
-  /* padding: 10px 10px 0 10px; */
   border-top-left-radius: 2px;
   border-bottom-left-radius: 2px;
   color: black;

@@ -1,0 +1,30 @@
+.detail {
+  background-color: transparent;
+  color: white;
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 53%;
+}
+
+.image img {
+  width: 100%;
+}
+
+.image div {
+  background-image: linear-gradient(
+    0.25turn,
+    var(--background),
+    transparent,
+    var(--background)
+  );
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}

@@ -3,7 +3,7 @@ import authContext from "../../context-store/authContext";
 import Button from "../UI/Button";
 import styles from "./SignInOutButton.module.css";
 
-function SignInButton() {
+function SignInOutButton() {
   const auth = useContext(authContext);
 
   const ClickHandler = () => {
@@ -18,4 +18,4 @@ function SignInButton() {
   );
 }
 
-export default SignInButton;
+export default SignInOutButton;

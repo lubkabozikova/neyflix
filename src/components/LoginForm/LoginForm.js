@@ -1,5 +1,5 @@
 import Button from "../UI/Button";
-import Input from "../Input/Input";
+import Input from "../UI/Input/Input";
 import styles from "./LoginForm.module.css";
 import { useState } from "react";
 

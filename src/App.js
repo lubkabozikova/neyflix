@@ -2,8 +2,8 @@ import "./App.css";
 import Layout from "./components/Layout/Layout";
 import ContentUnauth from "./components/ContentUnauth/ContentUnauth";
 import LoginForm from "./components/LoginForm/LoginForm";
-import MainPage from "./components/ContentAuth/MainPage";
-import Detail from "./components/ContentAuth/Detai";
+import ContentAuth from "./components/ContentAuth/ContentAuth";
+import Detail from "./components/Detail/Detail";
 
 function App() {
   return (
@@ -11,8 +11,8 @@ function App() {
       <Layout>
         {/* <ContentUnauth /> */}
         {/* <LoginForm /> */}
-        <MainPage />
-        {/* <Detail /> */}
+        {/* <ContentAuth /> */}
+        <Detail />
       </Layout>
     </div>
   );

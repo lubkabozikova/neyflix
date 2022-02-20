@@ -8,7 +8,7 @@
 .input label {
   background-color: transparent;
   z-index: 0;
-  color: #8c8c8c;
+  color: var(--gray);
   position: absolute;
   top: calc(50% - 12px);
   left: 10px;

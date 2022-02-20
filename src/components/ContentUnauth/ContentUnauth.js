@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import Button from "../UI/Button";
 import SignInOutButton from "../SignInOutButton/SignInOutButton";
-import Input from "../Input/Input";
+import Input from "../UI/Input/Input";
 
 import styles from "./ContentUnauth.module.css";
 
@@ -16,9 +16,7 @@ function Content() {
 
   return (
     <Fragment>
-      <div className={styles.headerButton}>
-        <SignInOutButton />
-      </div>
+      <SignInOutButton />
       <div className={styles.content}>
         <h1>Unlimited movies, TV shows, and more.</h1>
         <h2>Watch anywhere. Cancel anytime.</h2>
@@ -35,7 +33,9 @@ function Content() {
               // submitValue={setEmail}
               // submit={submit}
             />
-            <Button className={styles.button}>Get Started &rsaquo;</Button>
+            <Button className={styles.button} onClick={submitHandler}>
+              Get Started &rsaquo;
+            </Button>
           </div>
         </form>
       </div>

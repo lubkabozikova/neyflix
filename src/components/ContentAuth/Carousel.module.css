@@ -1,0 +1,22 @@
+.carousel {
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  margin: 0 auto 0 auto;
+}
+
+.item {
+  height: 270px;
+  width: 185px;
+  overflow: hidden;
+  border-left: solid 3px #303030;
+  border-right: solid 3px #303030;
+}
+
+.item img {
+  cursor: pointer;
+}
