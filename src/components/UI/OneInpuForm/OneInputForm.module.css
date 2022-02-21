@@ -1,0 +1,39 @@
+.form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 70px auto 0;
+}
+
+.form .input {
+  height: 30px;
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+  background-color: white;
+  height: 50px;
+  color: black;
+  width: 350px;
+}
+
+.form .button {
+  font-size: 16px;
+  padding: 8px 1.5rem;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-left: 1px solid var(--background);
+}
+
+@media screen and (max-width: 930px) {
+  .form {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .form .input {
+    border-radius: 3px;
+    margin: auto;
+  }
+  .form .button {
+    margin: 10px auto 0;
+    border-radius: 3px;
+  }
+}

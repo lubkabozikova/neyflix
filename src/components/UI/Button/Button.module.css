@@ -5,3 +5,7 @@
   width: fit-content;
   cursor: pointer;
 }
+
+.button:disabled {
+  cursor: auto;
+}

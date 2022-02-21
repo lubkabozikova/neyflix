@@ -1,21 +1,14 @@
 import { Fragment } from "react";
-import Button from "../UI/Button/Button";
+import { useNavigate } from "react-router-dom";
 import SignInOutButton from "../UI/SignInOutButton/SignInOutButton";
-import useInput from "../UI/Input/useInput";
-import Input from "../UI/Input/Input";
 
 import styles from "./ContentUnauth.module.css";
+import OneInputForm from "../UI/OneInpuForm/OneInputForm";
 
 function Content() {
-  const {
-    value: email,
-    valid: emailValid,
-    inputProps: emailProps,
-  } = useInput({ testRegex: /^\w+@\w+\.[A-Z a-z]{2,3}/ });
+  const navigate = useNavigate();
 
-  const submitHandler = (event) => {
-    event.preventDefault();
-  };
+  const formHandler = (email) => navigate(`/sign-in/${email}`);
 
   return (
     <Fragment>
@@ -26,20 +19,14 @@ function Content() {
         <h3>
           Ready to watch? Enter your email to create or restart your membership.
         </h3>
-        <form>
-          <div>
-            <Input
-              id="cua"
-              label="Email address"
-              className={styles.input}
-              errorMessage="Please enter a valid email"
-              {...emailProps}
-            />
-            <Button className={styles.button} onClick={submitHandler}>
-              Get Started &rsaquo;
-            </Button>
-          </div>
-        </form>
+        <OneInputForm
+          inputParams={{ testRegex: /^\w+@\w+\.[A-Z a-z]{2,3}/ }}
+          id="signIn"
+          label="Email address"
+          errorMessage="Please enter a valid email"
+          buttonText="Get Started &rsaquo;"
+          clickHandler={formHandler}
+        />
       </div>
     </Fragment>
   );
