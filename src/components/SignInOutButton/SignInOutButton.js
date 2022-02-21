@@ -1,20 +1,20 @@
-import { useContext } from "react";
-import authContext from "../../context-store/authContext";
+import { Link } from "react-router-dom";
 import Button from "../UI/Button";
 import styles from "./SignInOutButton.module.css";
 
-function SignInOutButton() {
-  const auth = useContext(authContext);
+function SignInOutButton(props) {
+  const auth = props.auth;
 
-  const ClickHandler = () => {
-    if (auth.loggedIn) auth.logOut();
-    if (!auth.loggedIn) auth.logIn();
-  };
+  const path = auth ? "/" : "/login";
+  // const ClickHandler = () => {
+  //   if (auth) ;
+  //   if (!auth) ;
+  // };
 
   return (
-    <Button className={styles.button} onClick={ClickHandler}>{`Sign ${
-      auth.loggedIn ? "Out" : "In"
-    }`}</Button>
+    <Link to={path}>
+      <Button className={styles.button}>{`Sign ${auth ? "Out" : "In"}`}</Button>
+    </Link>
   );
 }
 

@@ -1,14 +1,13 @@
 import { Fragment, useEffect, useState } from "react";
 import fetchTen from "../../functions/fetchTen";
 import SignInOutButton from "../SignInOutButton/SignInOutButton";
-import Button from "../UI/Button";
-import Input from "../UI/Input/Input";
 import Carousel from "./Carousel";
+import Search from "./Search";
 
 import styles from "./ContentAuth.module.css";
 
 function MainPage() {
-  const [movies, setMovies] = useState([]);
+  const [carouselMovies, setCarouselMovies] = useState([]);
 
   useEffect(() => {
     const getMovies = async () => {
@@ -21,31 +20,21 @@ function MainPage() {
           title: movie.title,
         };
       });
-      setMovies(transformedData);
+      setCarouselMovies(transformedData);
     };
     getMovies();
   }, []);
 
-  console.log(movies);
-
-  const carouselClickHandler = (id) => {};
-
-  const searchHandler = () => {};
+  const carouselMoviesLoaded = carouselMovies.length > 0;
 
   return (
     <Fragment>
-      <SignInOutButton />
-      {movies.length > 0 && (
-        <Carousel items={movies} clickHanlder={carouselClickHandler} />
+      <SignInOutButton auth={true} />
+      {carouselMoviesLoaded && (
+        <Carousel items={carouselMovies} path="/movies/detail" />
       )}
-      {movies.length === 0 && <div className={styles.carouselPlaceholder} />}
-      <form className={styles.form}>
-        <Input label="Insert text" className={styles.input} />
-        <Button className={styles.button} onClick={searchHandler}>
-          Search movies
-        </Button>
-      </form>
-      <div className={styles.searchResults}></div>
+      {!carouselMoviesLoaded && <div className={styles.carouselPlaceholder} />}
+      <Search />
     </Fragment>
   );
 }

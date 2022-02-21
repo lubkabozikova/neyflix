@@ -1,3 +1,4 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Layout from "./components/Layout/Layout";
 import ContentUnauth from "./components/ContentUnauth/ContentUnauth";
@@ -9,10 +10,12 @@ function App() {
   return (
     <div className="App">
       <Layout>
-        {/* <ContentUnauth /> */}
-        {/* <LoginForm /> */}
-        {/* <ContentAuth /> */}
-        <Detail />
+        <Routes>
+          <Route path="/" element={<ContentUnauth />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/movies" element={<ContentAuth />} />
+          <Route path="/movies/detail" element={<Detail />} />
+        </Routes>
       </Layout>
     </div>
   );

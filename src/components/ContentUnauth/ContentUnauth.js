@@ -1,22 +1,25 @@
 import { Fragment, useState } from "react";
 import Button from "../UI/Button";
 import SignInOutButton from "../SignInOutButton/SignInOutButton";
+import useInput from "../UI/Input/useInput";
 import Input from "../UI/Input/Input";
 
 import styles from "./ContentUnauth.module.css";
 
 function Content() {
-  // const [email, setEmail] = useState("");
-  // const [submit, setSubmit] = useState(false);
+  const {
+    value: email,
+    valid: emailValid,
+    inputProps: emailProps,
+  } = useInput(/^\w+@\w+\.[A-Z a-z]{2,3}/);
 
   const submitHandler = (event) => {
     event.preventDefault();
-    // setSubmit(true);
   };
 
   return (
     <Fragment>
-      <SignInOutButton />
+      <SignInOutButton auth={false} />
       <div className={styles.content}>
         <h1>Unlimited movies, TV shows, and more.</h1>
         <h2>Watch anywhere. Cancel anytime.</h2>
@@ -26,12 +29,11 @@ function Content() {
         <form>
           <div>
             <Input
+              id="cua"
               label="Email address"
               className={styles.input}
               errorMessage="Please enter a valid email"
-              testRegex={/^\w+@\w+\.[A-Z a-z]{2,3}/}
-              // submitValue={setEmail}
-              // submit={submit}
+              {...emailProps}
             />
             <Button className={styles.button} onClick={submitHandler}>
               Get Started &rsaquo;

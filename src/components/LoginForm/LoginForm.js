@@ -1,36 +1,45 @@
 import Button from "../UI/Button";
+import useInput from "../UI/Input/useInput";
 import Input from "../UI/Input/Input";
+
 import styles from "./LoginForm.module.css";
 import { useState } from "react";
 
 function LoginForm() {
-  // const [email, setEmail] = useState({ value: "", valid: false });
-  // const [password, setPassword] = useState({ value: "", valid: false });
-  // const [submit, setSubmit] = useState(false);
+  const {
+    value: email,
+    valid: emialValid,
+    inputProps: emailProps,
+  } = useInput(/^\w+@\w+\.[A-Z a-z]{2,3}$/);
+  const {
+    value: password,
+    valid: passwordValid,
+    inputProps: passwordProps,
+  } = useInput(/^\w{4,60}$/);
 
   const submitHandler = (event) => {
     event.preventDefault();
-    // setSubmit(true);
+    console.log(email);
+    console.log(password);
   };
 
   return (
     <form className={styles.form} onSubmit={submitHandler}>
       <h1>Sign In</h1>
       <Input
+        id="lf1"
         label="Email"
         className={styles.input}
         errorMessage="Please enter a valid email"
-        testRegex={/^\w{4,60}$/}
-        // sumbitValue={setEmail}
-        // submit={submit}
+        {...emailProps}
       />
       <Input
+        id="lf2"
         label="Password"
         className={styles.input}
         errorMessage="Your password must contain between 4 and 60 characters"
-        testRegex={/^\w+@\w+\.[A-Z a-z]{2,3}$/}
-        // sumbitValue={setPassword}
-        // submit={submit}
+        type="password"
+        {...passwordProps}
       />
       <Button className={styles.button}>Sign In</Button>
     </form>

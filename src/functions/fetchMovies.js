@@ -16,6 +16,10 @@ const fetchMovies = async (type, searchParams) => {
       throw new Error("invalid type: avilable types: 'ID', 'SEARCH'");
 
     const response = await fetch(url);
+
+    if (!response.ok)
+      throw new Error("something went wrong with fetching data");
+
     const data = await response.json();
 
     // const confResponse = await fetch(

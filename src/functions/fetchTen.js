@@ -6,7 +6,7 @@ async function fetchTen() {
   const randomInt = (maxNotIncluded) =>
     Math.floor(Math.random() * maxNotIncluded);
 
-  const frequentLetters = ["a", "e", "l", "o", "i", "s"];
+  const frequentLetters = ["a", "e", "o", "i"];
 
   const getRandom = (array) => array[randomInt(array.length)];
 

@@ -4,12 +4,11 @@ function DetailInfo(props) {
   const movie = { ...props.movie };
   // console.log(movie);
 
-  const relDate = movie.release_date.substring(0, 4);
-  console.log(movie.genres);
+  const relDate = movie.release_date.substring(0, 4) || "";
 
-  const genres = !movie.genres
-    ? []
-    : movie.genres.map((genre) => <li key={genre.id}>{genre.name}</li>);
+  const genres = !!movie.genres
+    ? movie.genres.map((genre) => <li key={genre.id}>{genre.name}</li>)
+    : [];
 
   return (
     <div className={styles.info}>
@@ -21,8 +20,10 @@ function DetailInfo(props) {
       <div className={styles.genres}>
         <ul>{genres}</ul>
       </div>
-      <div className={styles.tagline}>{movie.tagline}</div>
-      <div className={styles.overview}>{movie.overview}</div>
+      {!!movie.tagline && <div className={styles.tagline}>{movie.tagline}</div>}
+      {!!movie.overview && (
+        <div className={styles.overview}>{movie.overview}</div>
+      )}
     </div>
   );
 }
