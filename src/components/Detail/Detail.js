@@ -1,24 +1,22 @@
 import { Fragment, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import fetchMovies from "../../functions/fetchMovies";
 import styles from "./Detail.module.css";
 import DetailInfo from "./DetailInfo";
 
 function Detail() {
-  const tempId = 6;
-
+  const movieId = useParams().movieId;
   const [movie, setMovie] = useState({});
 
   useEffect(() => {
-    console.log("effect");
     const getMovie = async () => {
-      const data = await fetchMovies("ID", tempId);
+      const data = await fetchMovies("ID", movieId);
       setMovie(data);
-      console.log(tempId);
     };
 
     getMovie();
-  }, []);
-  // console.log(movie);
+  }, [movieId]);
+  console.log(movie);
 
   return (
     <Fragment>

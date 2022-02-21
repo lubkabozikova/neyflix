@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from "react";
 import fetchTen from "../../functions/fetchTen";
-import SignInOutButton from "../SignInOutButton/SignInOutButton";
+import SignInOutButton from "../UI/SignInOutButton/SignInOutButton";
 import Carousel from "./Carousel";
 import Search from "./Search";
 

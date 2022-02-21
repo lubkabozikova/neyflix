@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import Button from "../UI/Button";
+import Button from "../UI/Button/Button";
 import styles from "./NavButton.module.css";
 
 function NavButton(props) {

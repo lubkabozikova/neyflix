@@ -1,27 +1,28 @@
-import Button from "../UI/Button";
+import Button from "../UI/Button/Button";
 import useInput from "../UI/Input/useInput";
 import Input from "../UI/Input/Input";
 
 import styles from "./LoginForm.module.css";
-import { useState } from "react";
 
 function LoginForm() {
   const {
     value: email,
     valid: emialValid,
     inputProps: emailProps,
-  } = useInput(/^\w+@\w+\.[A-Z a-z]{2,3}$/);
+  } = useInput({ testRegex: /^\w+@\w+\.[A-Z a-z]{2,3}$/ });
   const {
     value: password,
     valid: passwordValid,
     inputProps: passwordProps,
-  } = useInput(/^\w{4,60}$/);
+  } = useInput({ testRegex: /^\w{4,60}$/ });
 
   const submitHandler = (event) => {
     event.preventDefault();
     console.log(email);
     console.log(password);
   };
+
+  const valid = emialValid && passwordValid;
 
   return (
     <form className={styles.form} onSubmit={submitHandler}>
@@ -41,7 +42,9 @@ function LoginForm() {
         type="password"
         {...passwordProps}
       />
-      <Button className={styles.button}>Sign In</Button>
+      <Button className={styles.button} disabled={valid ? undefined : true}>
+        Sign In
+      </Button>
     </form>
   );
 }

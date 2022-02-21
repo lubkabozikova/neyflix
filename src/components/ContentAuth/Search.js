@@ -3,13 +3,13 @@ import { Fragment, useState } from "react";
 import useInput from "../UI/Input/useInput";
 import Input from "../UI/Input/Input";
 import fetchMovies from "../../functions/fetchMovies";
-import Button from "../UI/Button";
+import Button from "../UI/Button/Button";
 
 import styles from "./Search.module.css";
 import SearchResults from "./SearchResults";
 
 function Search() {
-  const { value, valid, inputProps } = useInput(/^[\w\s]*$/);
+  const { value, valid, inputProps } = useInput({ testRegex: /^[\w\s]*$/ });
   const [query, setQuery] = useState("");
 
   const [didSearch, setDidSearch] = useState(false);

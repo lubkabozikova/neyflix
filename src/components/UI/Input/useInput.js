@@ -1,7 +1,10 @@
 import { useState } from "react";
 
-function useInput(testRegex = /\.*/) {
-  const [value, setValue] = useState("");
+function useInput(params) {
+  const testRegex = params.testRegex || /\.*/;
+  const initValue = params.initValue || "";
+
+  const [value, setValue] = useState(initValue);
   const valid = testRegex.test(value);
 
   const [wasActive, setWasActive] = useState(false);

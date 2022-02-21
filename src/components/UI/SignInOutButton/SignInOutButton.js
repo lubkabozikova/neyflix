@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Button from "../UI/Button";
+import Button from "../Button/Button";
 import styles from "./SignInOutButton.module.css";
 
 function SignInOutButton(props) {

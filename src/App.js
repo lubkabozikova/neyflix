@@ -13,8 +13,9 @@ function App() {
         <Routes>
           <Route path="/" element={<ContentUnauth />} />
           <Route path="/login" element={<LoginForm />} />
+          <Route path="/sign-in/:email" element={<LoginForm />} />
           <Route path="/movies" element={<ContentAuth />} />
-          <Route path="/movies/detail" element={<Detail />} />
+          <Route path="/movies/:movieId" element={<Detail />} />
         </Routes>
       </Layout>
     </div>

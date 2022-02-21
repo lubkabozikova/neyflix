@@ -1,6 +1,6 @@
-import { Fragment, useState } from "react";
-import Button from "../UI/Button";
-import SignInOutButton from "../SignInOutButton/SignInOutButton";
+import { Fragment } from "react";
+import Button from "../UI/Button/Button";
+import SignInOutButton from "../UI/SignInOutButton/SignInOutButton";
 import useInput from "../UI/Input/useInput";
 import Input from "../UI/Input/Input";
 
@@ -11,7 +11,7 @@ function Content() {
     value: email,
     valid: emailValid,
     inputProps: emailProps,
-  } = useInput(/^\w+@\w+\.[A-Z a-z]{2,3}/);
+  } = useInput({ testRegex: /^\w+@\w+\.[A-Z a-z]{2,3}/ });
 
   const submitHandler = (event) => {
     event.preventDefault();

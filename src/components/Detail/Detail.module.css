@@ -15,12 +15,13 @@
 }
 
 .image div {
-  background-image: linear-gradient(
-    0.25turn,
-    var(--background),
-    transparent,
-    var(--background)
-  );
+  background: linear-gradient(
+      0.25turn,
+      var(--background),
+      transparent,
+      var(--background)
+    ),
+    linear-gradient(transparent, transparent, var(--background));
   background-color: transparent;
   width: 100%;
   height: 100%;

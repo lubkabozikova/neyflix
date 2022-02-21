@@ -36,7 +36,7 @@ function SearchResults(props) {
     <Fragment>
       <div className={styles.movies} id="movies">
         {movies.map((item) => (
-          <Link key={item.id} to="/movies/detail">
+          <Link key={item.id} to={`/movies/${item.id}`}>
             <div className={styles.item} key={item.id}>
               {item.imgUrl && (
                 <img src={item.imgUrl} alt={item.title} title={item.title} />
