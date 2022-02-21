@@ -1,6 +1,6 @@
 import { Fragment, useState } from "react";
 
-import fetchMovies from "../../functions/fetchMovies";
+import fetchMovies from "../../fetch-hooks/fetchMovies";
 import OneInputForm from "../UI/OneInpuForm/OneInputForm";
 
 import styles from "./Search.module.css";

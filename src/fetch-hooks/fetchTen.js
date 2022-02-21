@@ -1,6 +1,6 @@
 import fetchMovies from "./fetchMovies";
 
-async function fetchTen() {
+async function useFetchTen() {
   const movies = [];
 
   const randomInt = (maxNotIncluded) =>
@@ -26,4 +26,4 @@ async function fetchTen() {
   return movies;
 }
 
-export default fetchTen;
+export default useFetchTen;

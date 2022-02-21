@@ -1,20 +1,22 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 import styles from "./SignInOutButton.module.css";
 
 function SignInOutButton(props) {
   const auth = props.auth;
 
+  const navigate = useNavigate();
   const path = auth ? "/" : "/login";
-  // const ClickHandler = () => {
-  //   if (auth) ;
-  //   if (!auth) ;
-  // };
+
+  const clickHandler = () => {
+    if (auth) localStorage.removeItem("neyflixToken");
+    navigate(path);
+  };
 
   return (
-    <Link to={path}>
-      <Button className={styles.button}>{`Sign ${auth ? "Out" : "In"}`}</Button>
-    </Link>
+    <Button className={styles.button} onClick={clickHandler}>{`Sign ${
+      auth ? "Out" : "In"
+    }`}</Button>
   );
 }
 

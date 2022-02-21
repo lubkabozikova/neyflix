@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import fetchMovies from "../../functions/fetchMovies";
+import fetchMovies from "../../fetch-hooks/fetchMovies";
 import NavButton from "./NavButton";
 import styles from "./SearchResults.module.css";
 

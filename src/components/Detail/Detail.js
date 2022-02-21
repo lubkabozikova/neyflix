@@ -1,10 +1,13 @@
 import { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import fetchMovies from "../../functions/fetchMovies";
+import useAuthenticateAccess from "../../dummy_auth/useAuthenticateAccess";
+import fetchMovies from "../../fetch-hooks/fetchMovies";
 import styles from "./Detail.module.css";
 import DetailInfo from "./DetailInfo";
 
 function Detail() {
+  useAuthenticateAccess();
+
   const movieId = useParams().movieId;
   const [movie, setMovie] = useState({});
 

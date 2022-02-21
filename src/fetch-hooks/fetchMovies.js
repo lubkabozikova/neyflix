@@ -1,6 +1,6 @@
 import TMDBkey from "../key";
 
-const fetchMovies = async (type, searchParams) => {
+async function useFetchMovies(type, searchParams) {
   let url = "https://api.themoviedb.org/3/";
   const key = `?api_key=${TMDBkey}`;
 
@@ -32,6 +32,6 @@ const fetchMovies = async (type, searchParams) => {
   } catch (error) {
     console.log(error.message);
   }
-};
+}
 
-export default fetchMovies;
+export default useFetchMovies;
