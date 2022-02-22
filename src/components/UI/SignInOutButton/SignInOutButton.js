@@ -14,9 +14,10 @@ function SignInOutButton(props) {
   };
 
   return (
-    <Button className={styles.button} onClick={clickHandler}>{`Sign ${
-      auth ? "Out" : "In"
-    }`}</Button>
+    <Button
+      className={`${props.className} ${styles.button}`}
+      onClick={clickHandler}
+    >{`Sign ${auth ? "Out" : "In"}`}</Button>
   );
 }
 

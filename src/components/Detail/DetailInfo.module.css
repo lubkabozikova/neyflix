@@ -1,9 +1,7 @@
 .info {
   width: calc(50% - 10rem);
   background-color: transparent;
-  position: absolute;
-  left: 5rem;
-  top: 10rem;
+  width: 50%;
   text-align: left;
   color: var(--gray);
   font-size: 16px;
@@ -11,6 +9,7 @@
 
 .info div {
   margin-bottom: 25px;
+  margin-left: 2rem;
 }
 
 .info div.title {

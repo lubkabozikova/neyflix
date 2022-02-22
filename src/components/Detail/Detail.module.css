@@ -1,13 +1,16 @@
 .detail {
   background-color: transparent;
   color: white;
+
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
 .image {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 53%;
+  width: 50%;
+  position: relative;
+  top: -150px;
 }
 
 .image img {

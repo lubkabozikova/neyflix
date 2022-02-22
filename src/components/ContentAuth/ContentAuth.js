@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
-import fetchTen from "../../fetch-hooks/fetchTen";
+import fetchTen from "../../fetch-functions/fetchTen";
 import SignInOutButton from "../UI/SignInOutButton/SignInOutButton";
 import Carousel from "./Carousel";
 import Search from "./Search";
@@ -32,7 +32,6 @@ function MainPage() {
 
   return (
     <Fragment>
-      <SignInOutButton auth={true} />
       {carouselMoviesLoaded && (
         <Carousel items={carouselMovies} path="/movies/detail" />
       )}

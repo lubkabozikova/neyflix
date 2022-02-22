@@ -1,13 +1,14 @@
 import { Fragment, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import fetchMovies from "../../fetch-hooks/fetchMovies";
+import { useNavigate } from "react-router-dom";
+import fetchMovies from "../../fetch-functions/fetchMovies";
 import NavButton from "./NavButton";
 import styles from "./SearchResults.module.css";
 
 function SearchResults(props) {
   const [movies, setMovies] = useState([]);
-  const [page, setPage] = useState(1);
-  const { query } = props;
+  const [page, setPage] = useState(parseInt(props.page));
+  const [pageCount, setPageCount] = useState(0);
+  const query = props.query;
 
   useEffect(() => {
     const getMovies = async () => {
@@ -15,6 +16,8 @@ function SearchResults(props) {
         query: query,
         page: page,
       });
+      // console.log(data);
+      setPageCount(data.total_pages);
       const transformedData = data.results.map((movie) => {
         if (!movie.poster_path) {
           return { id: movie.id, imgUrl: false, title: movie.title };
@@ -26,27 +29,30 @@ function SearchResults(props) {
         };
       });
       setMovies(transformedData);
-      //   console.log(data.results);
     };
 
-    getMovies();
+    if (!!query) getMovies();
   }, [page, query]);
+
+  const navigate = useNavigate();
 
   return (
     <Fragment>
       <div className={styles.movies} id="movies">
         {movies.map((item) => (
-          <Link key={item.id} to={`/movies/${item.id}`}>
-            <div className={styles.item} key={item.id}>
-              {item.imgUrl && (
-                <img src={item.imgUrl} alt={item.title} title={item.title} />
-              )}
-              {!item.imgUrl && <p>{item.title}</p>}
-            </div>
-          </Link>
+          <div
+            className={styles.item}
+            key={item.id}
+            onClick={() => navigate(`/detail/${item.id}`)}
+          >
+            {!!item.imgUrl && (
+              <img src={item.imgUrl} alt={item.title} title={item.title} />
+            )}
+            {!item.imgUrl && <div className={styles.alt}>{item.title}</div>}
+          </div>
         ))}
       </div>
-      {props.pageCount > 1 && (
+      {pageCount > 1 && (
         <div className={styles.actions}>
           <NavButton onClick={() => setPage(1)}>&laquo;</NavButton>
           <NavButton
@@ -57,13 +63,11 @@ function SearchResults(props) {
           </NavButton>
           <NavButton
             onClick={() => setPage((prev) => prev + 1)}
-            disable={page === props.pageCount}
+            disable={page === pageCount}
           >
             &rsaquo;
           </NavButton>
-          <NavButton onClick={() => setPage(props.pageCount)}>
-            &raquo;
-          </NavButton>
+          <NavButton onClick={() => setPage(pageCount)}>&raquo;</NavButton>
         </div>
       )}
     </Fragment>

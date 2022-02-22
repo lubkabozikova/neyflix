@@ -22,7 +22,7 @@ function Carousel(props) {
       <div className={styles.container}>
         {items.map((item) => (
           <div className={styles.item} key={item.id}>
-            <Link to={`/movies/${item.id}`}>
+            <Link to={`/detail/${item.id}`}>
               <img src={item.imgUrl} alt={item.title} title={item.title} />
             </Link>
           </div>

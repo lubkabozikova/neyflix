@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useAuthenticateAccess from "../../dummy_auth/useAuthenticateAccess";
-import fetchMovies from "../../fetch-hooks/fetchMovies";
+import fetchMovies from "../../fetch-functions/fetchMovies";
 import styles from "./Detail.module.css";
 import DetailInfo from "./DetailInfo";
 
@@ -19,13 +19,15 @@ function Detail() {
 
     getMovie();
   }, [movieId]);
-  console.log(movie);
+
+  // console.log(movie);
 
   return (
     <Fragment>
       {Object.keys(movie).length === 0 && <div />}
       {Object.keys(movie).length > 0 && (
         <div className={styles.detail}>
+          <DetailInfo movie={movie} />
           <div className={styles.image}>
             <img
               src={`http://image.tmdb.org/t/p/w780${movie.poster_path}`}
@@ -33,7 +35,6 @@ function Detail() {
             />
             <div> </div>
           </div>
-          <DetailInfo movie={movie} />
         </div>
       )}
     </Fragment>

@@ -1,16 +1,21 @@
 import { Fragment, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
-import fetchMovies from "../../fetch-hooks/fetchMovies";
+import fetchMovies from "../../fetch-functions/fetchMovies";
 import OneInputForm from "../UI/OneInpuForm/OneInputForm";
 
 import styles from "./Search.module.css";
 import SearchResults from "./SearchResults";
 
 function Search() {
-  const [query, setQuery] = useState("");
+  const params = useParams();
+
+  const [query, setQuery] = useState(params.search || "");
 
   const [didSearch, setDidSearch] = useState(false);
-  const [pageCount, setPageCount] = useState(0);
+  const [pageCount, setPageCount] = useState(params.page || 0);
+
+  const navigate = useNavigate();
 
   const searchHandler = async (value) => {
     if (value.length === 0) return;
@@ -18,6 +23,7 @@ function Search() {
     setPageCount(data.total_pages);
     setDidSearch(true);
     setQuery(value);
+    navigate(`/movies/${value}/1`);
   };
 
   return (
@@ -34,8 +40,8 @@ function Search() {
         {didSearch && pageCount === 0 && (
           <p>No movies were found for this text</p>
         )}
-        {didSearch && pageCount > 0 && (
-          <SearchResults pageCount={pageCount} query={query} />
+        {pageCount > 0 && (
+          <SearchResults query={query} page={params.page || 1} />
         )}
       </div>
     </Fragment>

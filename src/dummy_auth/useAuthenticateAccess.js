@@ -6,7 +6,7 @@ function useAuthenticateAccess() {
   const authenticate = useContext(authContext).authAccess;
   const token = localStorage.getItem("neyflixToken");
   const navigate = useNavigate();
-  if (!authenticate(token)) navigate("/denied");
+  if (!authenticate(token)) navigate("/login");
 }
 
 export default useAuthenticateAccess;
