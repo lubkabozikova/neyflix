@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: row;
   width: fit-content;
-  margin: 0 auto 0 auto;
+  /* margin: 0 auto 0 auto; */
 }
 
 .item {
@@ -19,4 +19,18 @@
 
 .item img {
   cursor: pointer;
+}
+
+@keyframes moving {
+  from {
+    margin-left: 0;
+  }
+  to {
+    margin-left: -191px;
+  }
+}
+
+.container.moving {
+  animation-name: moving;
+  animation-duration: 300ms;
 }

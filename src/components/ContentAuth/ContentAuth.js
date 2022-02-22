@@ -21,6 +21,7 @@ function MainPage() {
           id: movie.id,
           imgUrl: `http://image.tmdb.org/t/p/w185${movie.poster_path}`,
           title: movie.title,
+          key: movie.id,
         };
       });
       setCarouselMovies(transformedData);

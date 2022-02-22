@@ -12,11 +12,8 @@ function AuthContextProvider(props) {
   };
 
   const addUser = (newUser) => {
-    let unique = true;
-    users.forEach((user) => {
-      if (user.email === newUser.email) unique = false;
-    });
-    if (!unique) return false;
+    let exists = users.some((user) => user.email === newUser.email);
+    if (exists) return false;
 
     const newId = "u" + Math.floor(Math.random() * 1000).toString();
     users.push({ ...newUser, id: newId });
@@ -35,8 +32,10 @@ function AuthContextProvider(props) {
     return newToken;
   };
 
-  const authAccess = (token) => {
-    if (!token) return false;
+  const authAccess = (authToken) => {
+    // const auth = tokens.some((token) => token === authToken);
+    const auth = !!authToken;
+    if (!auth) return false;
     return true;
   };
 
