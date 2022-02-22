@@ -11,7 +11,7 @@ function DetailInfo(props) {
     : [];
 
   return (
-    <div className={styles.info}>
+    <div className={`${styles.info} ${props.className}`}>
       <div className={styles.title}>{movie.title}</div>
       <div className={styles.wrapper}>
         <div className={styles.rating}></div>
@@ -20,10 +20,10 @@ function DetailInfo(props) {
       <div className={styles.genres}>
         <ul>{genres}</ul>
       </div>
-      {!!movie.tagline && <div className={styles.tagline}>{movie.tagline}</div>}
+      {/* {!!movie.tagline && <div className={styles.tagline}>{movie.tagline}</div>}
       {!!movie.overview && (
         <div className={styles.overview}>{movie.overview}</div>
-      )}
+      )} */}
     </div>
   );
 }

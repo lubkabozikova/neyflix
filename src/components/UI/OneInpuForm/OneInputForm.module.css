@@ -23,14 +23,15 @@
   border-left: 1px solid var(--background);
 }
 
-@media screen and (max-width: 930px) {
+@media screen and (max-width: 768px) {
   .form {
     flex-direction: column;
     justify-content: center;
   }
   .form .input {
     border-radius: 3px;
-    margin: auto;
+    margin: 0 auto;
+    width: 90%;
   }
   .form .button {
     margin: 10px auto 0;

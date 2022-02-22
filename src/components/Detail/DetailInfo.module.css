@@ -1,15 +1,13 @@
 .info {
-  width: calc(50% - 10rem);
   background-color: transparent;
-  width: 50%;
+  width: calc(100% - 2rem);
   text-align: left;
-  color: var(--gray);
   font-size: 16px;
+  margin-left: 2rem;
 }
 
 .info div {
   margin-bottom: 25px;
-  margin-left: 2rem;
 }
 
 .info div.title {
@@ -37,8 +35,4 @@
   color: var(--red);
   font-weight: bold;
   margin-right: 10px;
-}
-
-.info div.tagline {
-  font-size: 20px;
 }

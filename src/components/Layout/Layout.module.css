@@ -14,7 +14,7 @@
 }
 
 .main {
-  padding: 150px 0 0;
+  padding: calc(20px + 5rem) 0 0;
   display: flex;
   flex-direction: column;
   min-height: calc(100% - 150px);

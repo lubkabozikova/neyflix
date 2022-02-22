@@ -1,11 +1,10 @@
 import { Fragment, useEffect, useState } from "react";
 import fetchTen from "../../fetch-functions/fetchTen";
-import SignInOutButton from "../UI/SignInOutButton/SignInOutButton";
+import useAuthenticateAccess from "../../dummy_auth/useAuthenticateAccess";
 import Carousel from "./Carousel";
 import Search from "./Search";
 
 import styles from "./ContentAuth.module.css";
-import useAuthenticateAccess from "../../dummy_auth/useAuthenticateAccess";
 
 function MainPage() {
   useAuthenticateAccess();

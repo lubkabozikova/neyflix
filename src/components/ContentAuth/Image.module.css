@@ -1,0 +1,21 @@
+.image {
+  height: min(270px, 21.5rem);
+  width: min(185px, 15rem);
+  overflow: hidden;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image img {
+  cursor: pointer;
+  width: 100%;
+}
+
+.image .alt {
+  color: var(--red);
+  font-size: 25px;
+  padding: 5px;
+  text-shadow: 1px 1px var(--gray);
+}

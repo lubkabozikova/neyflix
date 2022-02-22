@@ -6,26 +6,8 @@
 }
 
 .movies .item {
-  height: 270px;
-  width: 185px;
-  overflow: hidden;
-  font-size: 25px;
   margin: 20px 10px;
   box-shadow: -5px -5px 15px #303030;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.movies .item img {
-  cursor: pointer;
-}
-
-.movies .item .alt {
-  color: var(--red);
-  font-size: 25px;
-  padding: 5px;
-  text-shadow: 1px 1px var(--gray);
 }
 
 .actions {

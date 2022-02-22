@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import fetchMovies from "../../fetch-functions/fetchMovies";
 import NavButton from "./NavButton";
+import Image from "./Image";
 import styles from "./SearchResults.module.css";
 
 function SearchResults(props) {
@@ -16,7 +16,6 @@ function SearchResults(props) {
         query: query,
         page: page,
       });
-      // console.log(data);
       setPageCount(data.total_pages);
       const transformedData = data.results.map((movie) => {
         if (!movie.poster_path) {
@@ -34,22 +33,11 @@ function SearchResults(props) {
     if (!!query) getMovies();
   }, [page, query]);
 
-  const navigate = useNavigate();
-
   return (
     <Fragment>
       <div className={styles.movies} id="movies">
         {movies.map((item) => (
-          <div
-            className={styles.item}
-            key={item.id}
-            onClick={() => navigate(`/detail/${item.id}`)}
-          >
-            {!!item.imgUrl && (
-              <img src={item.imgUrl} alt={item.title} title={item.title} />
-            )}
-            {!item.imgUrl && <div className={styles.alt}>{item.title}</div>}
-          </div>
+          <Image image={item} key={item.id} className={styles.item} />
         ))}
       </div>
       {pageCount > 1 && (

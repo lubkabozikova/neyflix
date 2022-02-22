@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import Image from "./Image";
 import styles from "./Carousel.module.css";
 
 function Carousel(props) {
   const copiedItems = props.items.map((item) => ({
     ...item,
-    key: item.id + "2",
+    key: item.key + "2",
   }));
   const [items, setItems] = useState([...props.items, ...copiedItems]);
 
   const [addMoving, setAddMoving] = useState(false);
+
   useEffect(() => {
     const movingPictures = setInterval(() => {
       setAddMoving(true);
@@ -30,11 +31,7 @@ function Carousel(props) {
     <div className={styles.carousel}>
       <div className={containerClasses}>
         {items.map((item) => (
-          <div className={styles.item} key={item.key}>
-            <Link to={`/detail/${item.id}`}>
-              <img src={item.imgUrl} alt={item.title} title={item.title} />
-            </Link>
-          </div>
+          <Image image={item} key={item.key} className={styles.item} />
         ))}
       </div>
     </div>
