@@ -1,6 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import useAuthenticateAccess from "../../dummy_auth/useAuthenticateAccess";
 import fetchMovies from "../../fetch-functions/fetchMovies";
 import DetailImage from "./DetailImage";
 import DetailInfo from "./DetailInfo";
@@ -10,8 +9,6 @@ import Button from "../UI/Button/Button";
 import styles from "./Detail.module.css";
 
 function Detail() {
-  useAuthenticateAccess();
-
   const navigate = useNavigate();
   const movieId = useParams().movieId;
   const [movie, setMovie] = useState({});

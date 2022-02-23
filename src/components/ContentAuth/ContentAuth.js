@@ -1,14 +1,11 @@
 import { Fragment, useEffect, useState } from "react";
 import fetchTen from "../../fetch-functions/fetchTen";
-import useAuthenticateAccess from "../../dummy_auth/useAuthenticateAccess";
 import Carousel from "./Carousel";
 import Search from "./Search";
 
 import styles from "./ContentAuth.module.css";
 
 function MainPage() {
-  useAuthenticateAccess();
-
   const [carouselMovies, setCarouselMovies] = useState([]);
 
   useEffect(() => {

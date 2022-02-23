@@ -3,8 +3,7 @@ import "./App.css";
 import Layout from "./components/Layout/Layout";
 import ContentUnauth from "./components/ContentUnauth/ContentUnauth";
 import LoginForm from "./components/LoginForm/LoginForm";
-import ContentAuth from "./components/ContentAuth/ContentAuth";
-import Detail from "./components/Detail/Detail";
+import Authenticate from "./components/Authenticate/Authenticate";
 
 function App() {
   return (
@@ -14,9 +13,10 @@ function App() {
           <Route path="/" element={<ContentUnauth />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/sign-in/:email" element={<LoginForm />} />
-          <Route path="/movies" element={<ContentAuth />} />
-          <Route path="/movies/:search/:page" element={<ContentAuth />} />
-          <Route path="/detail/:movieId" element={<Detail />} />
+
+          <Route path="/movies" element={<Authenticate />} />
+          <Route path="/movies/:search/:page" element={<Authenticate />} />
+          <Route path="/detail/:movieId" element={<Authenticate />} />
         </Routes>
       </Layout>
     </div>

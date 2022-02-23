@@ -1,3 +1,4 @@
+import RatingStars from "./RatingStars";
 import styles from "./DetailInfo.module.css";
 
 function DetailInfo(props) {
@@ -14,16 +15,12 @@ function DetailInfo(props) {
     <div className={`${styles.info} ${props.className}`}>
       <div className={styles.title}>{movie.title}</div>
       <div className={styles.wrapper}>
-        <div className={styles.rating}></div>
+        <RatingStars rating={movie.vote_average * 10} />
         <div className={styles.relDate}>{relDate}</div>
       </div>
       <div className={styles.genres}>
         <ul>{genres}</ul>
       </div>
-      {/* {!!movie.tagline && <div className={styles.tagline}>{movie.tagline}</div>}
-      {!!movie.overview && (
-        <div className={styles.overview}>{movie.overview}</div>
-      )} */}
     </div>
   );
 }

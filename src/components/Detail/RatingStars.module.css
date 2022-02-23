@@ -1,0 +1,16 @@
+.rating {
+  margin-right: 2rem;
+  width: fit-content;
+  height: 25px;
+  position: relative;
+}
+
+.rating .bar {
+  background-color: var(--red);
+  height: 100%;
+  margin: 0;
+}
+
+.rating .stars {
+  margin-top: -25px;
+}

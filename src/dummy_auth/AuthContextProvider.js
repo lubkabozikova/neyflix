@@ -11,6 +11,8 @@ function AuthContextProvider(props) {
     return token;
   };
 
+  // since this only runs in memory,
+  //all added users will be lont after reload
   const addUser = (newUser) => {
     let exists = users.some((user) => user.email === newUser.email);
     if (exists) return false;
@@ -33,8 +35,7 @@ function AuthContextProvider(props) {
   };
 
   const authAccess = (authToken) => {
-    // const auth = tokens.some((token) => token === authToken);
-    const auth = !!authToken;
+    const auth = tokens.some((token) => token === authToken);
     if (!auth) return false;
     return true;
   };
