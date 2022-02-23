@@ -12,9 +12,10 @@ function Carousel(props) {
   const [addMoving, setAddMoving] = useState(false);
 
   useEffect(() => {
+    let timer = null;
     const movingPictures = setInterval(() => {
       setAddMoving(true);
-      setTimeout(() => {
+      timer = setTimeout(() => {
         setItems((prev) => {
           const [first, ...rest] = prev;
           return [...rest, first];
@@ -22,7 +23,10 @@ function Carousel(props) {
         setAddMoving(false);
       }, 300);
     }, 3000);
-    return () => clearInterval(movingPictures);
+    return () => {
+      clearInterval(movingPictures);
+      clearTimeout(timer);
+    };
   }, []);
 
   const containerClasses = `${styles.container} ${addMoving && styles.moving}`;

@@ -19,7 +19,9 @@ function Search() {
 
   const searchHandler = async (value) => {
     if (value.length === 0) return;
-    const data = await fetchMovies("SEARCH", { query: value });
+    const data = await fetchMovies("SEARCH", {
+      query: value,
+    });
     setPageCount(data.total_pages);
     setDidSearch(true);
     setQuery(value);
@@ -29,7 +31,7 @@ function Search() {
   return (
     <Fragment>
       <OneInputForm
-        inputParams={{ testRegex: /^[\w\s]*$/ }}
+        inputParams={{ testRegex: /^[\w\s]*$/, initValue: query }}
         id="search"
         label="Insert text"
         errorMessage="Please use only letters and numbers"

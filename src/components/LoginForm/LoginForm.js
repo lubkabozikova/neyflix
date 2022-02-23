@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Button from "../UI/Button/Button";
 import useInput from "../UI/Input/useInput";
@@ -8,19 +8,26 @@ import styles from "./LoginForm.module.css";
 import authContext from "../../dummy_auth/authContext";
 
 function LoginForm() {
-  const [showError, setShowError] = useState(false);
-
   const path = useLocation().pathname;
-  const login = path.includes("login");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!["login", "sign"].some((item) => path.includes(item)))
+      navigate("/login");
+  }, [path, navigate]);
+
+  const signUp = path.includes("sign");
   const params = useParams();
 
-  const initEmail = login ? "" : params.email;
-  const errorMessage = login
-    ? "Wrong email or password"
-    : "Account for this email exists already";
+  const [showError, setShowError] = useState(false);
+
+  const initEmail = signUp ? params.email : "";
+  const errorMessage = signUp
+    ? "Account for this email exists already"
+    : "Wrong email or password";
 
   const auth = useContext(authContext);
-  const authenticate = login ? auth.authUser : auth.addUser;
+  const authenticate = signUp ? auth.addUser : auth.authUser;
 
   const {
     value: email,
@@ -38,8 +45,6 @@ function LoginForm() {
 
   const valid = emialValid && passwordValid;
 
-  const navigate = useNavigate();
-
   const submitHandler = (event) => {
     event.preventDefault();
     setShowError(false);
@@ -55,7 +60,7 @@ function LoginForm() {
 
   return (
     <form className={styles.form} onSubmit={submitHandler}>
-      <h1>Sign {login ? "In" : "Up"}</h1>
+      <h1>Sign {signUp ? "Up" : "In"}</h1>
       <Input
         id="lf1"
         label="Email"
@@ -72,7 +77,7 @@ function LoginForm() {
         {...passwordProps}
       />
       <Button className={styles.button} disabled={valid ? undefined : true}>
-        Sign {login ? "In" : "Up"}
+        Sign {signUp ? "Up" : "In"}
       </Button>
       {showError && <p className={styles.errorText}>{errorMessage}</p>}
     </form>
