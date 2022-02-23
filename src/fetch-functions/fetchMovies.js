@@ -1,8 +1,18 @@
-import TMDBkey from "../key";
+let authKey = "";
 
 async function useFetchMovies(type, searchParams) {
   let url = "https://api.themoviedb.org/3/";
-  const key = `?api_key=${TMDBkey}`;
+
+  const getKey = async () => {
+    if (authKey === "") {
+      const keyJson = await fetch("./key.json");
+      const TMDBkey = (await keyJson.json()).TMDBkey;
+      authKey = `?api_key=${TMDBkey}`;
+    }
+    return authKey;
+  };
+
+  const key = await getKey();
 
   try {
     if (type === "ID") url = `${url}movie/${searchParams}${key}&language=en-US`;
